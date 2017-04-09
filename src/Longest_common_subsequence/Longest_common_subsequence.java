@@ -16,6 +16,7 @@ public class Longest_common_subsequence {
      */
     public static void main(String[] args) {
         LCS LCS = new LCS();
+        Timer TM = new Timer();
         
         String ex = "ABCD";
         String ex2 = "ACBD";
