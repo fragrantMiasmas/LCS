@@ -15,7 +15,12 @@ public class Longest_common_subsequence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        LCS LCS = new LCS();
+        
+        String ex = "ABCD";
+        String ex2 = "ACBD";
+        
+        
     }
     
 }

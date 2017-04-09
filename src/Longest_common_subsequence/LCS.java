@@ -11,6 +11,13 @@ package Longest_common_subsequence;
  */
 public class LCS {
     
+    //string to char array
+    
+    public char[] charA(String str){
+        char[] charA = str.toCharArray();
+        return charA;
+    }
+    
     public void LCS_length(char[] x, char[] y){
         int m =  x.length;
         int n = y.length;
@@ -46,7 +53,17 @@ public class LCS {
         
         //later return 2-d arrays b and c
     }
-    public void printLCS(int[][] b, char[] x){
+    public void printLCS(int[][] b, char[] x, int i, int j){
+        if(i==0 || j==0)
+        if(b[i][j] == 1){
+            printLCS(b, x, i-1,j-1);
+            System.out.println(x[i]);
+        }    
+        else if(b[i][j] == 2){
+            printLCS(b,x,i-1,j);
+        }
+        else
+            printLCS(b,x,i,j-1);
         
     }
 }
