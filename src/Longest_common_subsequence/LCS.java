@@ -11,8 +11,7 @@ package Longest_common_subsequence;
  */
 public class LCS {
     
-    //string to char array
-    
+      
     public char[] charA(String str){
         char[] charA = str.toCharArray();
         return charA;
@@ -64,6 +63,10 @@ public class LCS {
         }
         else
             printLCS(b,x,i,j-1);
+        
+    }
+    
+    public void runAll(){
         
     }
 }
