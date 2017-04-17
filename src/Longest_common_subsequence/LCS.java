@@ -95,7 +95,7 @@ public class LCS {
     
     HashMap<Integer, StringBuilder> hmap = new HashMap<Integer, StringBuilder>();
     
-    public void bruteForce(String u, String v){
+    public void findsub(String u){ //find subsequences of first string
    
         for(int i = 0; i<u.length(); i++){ //find all subsequences of x
             
@@ -106,6 +106,16 @@ public class LCS {
                 //if new combo
                 hmap.put(j, sb);
             }
+        } //end of outer loop
+        //still need to account for nonconsecutive sequences
+    }
+    
+    public void bruteForce(String u, String v){
+        
+        findsub(u);
+        for(int i = 0; i<v.length(); i++){
+            //see if substring in u is also in v
+            hmap.get(i);
         }
     }
 }
