@@ -12,11 +12,6 @@ package Longest_common_subsequence;
 public class LCS {
     
       
-    public char[] charA(String str){
-        char[] charA = str.toCharArray();
-        return charA;
-    }
-    
     public int[][] LCS_length(char[] x, char[] y){
         int m =  x.length;
         int n = y.length;
@@ -52,21 +47,47 @@ public class LCS {
         //later return 2-d arrays b and c
         return b;
     }
+//    public void printLCS(int[][] b, char[] x, int i, int j){
+//        if(i==0 || j==0){
+//            
+//        }
+//        if(b[i][j] == 1){
+//            printLCS(b, x, i-1,j-1);
+//            System.out.println(x[i]);
+//        }    
+//        else if(b[i][j] == 2){
+//            printLCS(b,x,i-1,j);
+//        }
+//        else
+//            printLCS(b,x,i,j-1);
+//        
+//    }
+    
     public void printLCS(int[][] b, char[] x, int i, int j){
-        if(i==0 || j==0)
-        if(b[i][j] == 1){
+        if(i==0 || j==0){
+            
+        }
+
+      int curr = b[i][j];
+      switch(curr) {
+         case 1 :
             printLCS(b, x, i-1,j-1);
             System.out.println(x[i]);
-        }    
-        else if(b[i][j] == 2){
+            break;
+         case 2 :
             printLCS(b,x,i-1,j);
-        }
-        else
+            break;
+         default :
             printLCS(b,x,i,j-1);
-        
+      }
+      
     }
     
-    public void runAll(){
+    public void dynamicLCS(String u, String v){
+        char[] x = u.toCharArray();
+        char[] y = v.toCharArray();
         
+        int[][] b = LCS_length(x, y);
+        printLCS(b, x, x.length-1, y.length-1);
     }
 }

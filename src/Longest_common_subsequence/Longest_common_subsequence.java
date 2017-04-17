@@ -20,12 +20,8 @@ public class Longest_common_subsequence {
         
         String ex = "ABCD";
         String ex2 = "ACBD";
-        
-        char[] x = ex.toCharArray();
-        char[] y = ex2.toCharArray();
 
-          int[][] b = LCS.LCS_length(x, y);
-          LCS.printLCS(b, x, 0, 0);
+        LCS.dynamicLCS(ex, ex2);
         
         
     }
