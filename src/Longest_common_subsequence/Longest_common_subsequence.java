@@ -21,6 +21,12 @@ public class Longest_common_subsequence {
         String ex = "ABCD";
         String ex2 = "ACBD";
         
+        char[] b = ex.toCharArray();
+        char[] x = ex2.toCharArray();
+        
+//        LCS.printLCS(b, x, 0, 0);
+          LCS.LCS_length(b, x);
+        
         
     }
     

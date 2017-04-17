@@ -21,31 +21,35 @@ public class LCS {
         int m =  x.length;
         int n = y.length;
         
-        int[][] b = new int [n-1][m-1]; 
-        int[][] c = new int[n][m];
+        int[][] b = new int [n][m]; 
+        int[][] c = new int[n+1][m+1];
         
-        for(int i=0; i<m; i++){ //set rows to zero
-            c[i][0] = 0;
-        }
+//        for(int i=0; i<m; i++){ //set rows to zero
+//            c[i][0] = 0;
+//        }
+//        
+//        //may have to swithch 0 and j/i because java is different major than matlab
+//        for(int j= 0; j<m; j++){ //set columns to zero
+//            c[j][0] = 0;
+//        }
         
-        //may have to swithch 0 and j/i because java is different major than matlab
-        for(int j= 0; j<m; j++){ //set columns to zero
-            c[j][0] = 0;
-        }
-        
-        for (int i = 0;i<m; i++){
-            for(int j = 0; j<n; j++){
-                if(x[i]==y[j]){
+        for (int i = 1; i<m; i++){
+            for(int j = 1; j<n; j++){
+                
+                if(x[i-1]==y[j-1]){ //because x,y need to start at 0
                     c[i][j] = c[i-1][j-1]+1;
                     b[i][j] = 1; //where one = diagonal arrow
+                    System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
                 else if(c[i-1][j]>=c[i][j-1]){
                     c[i][j] = c[i-1][j];
                     b[i][j] = 2; //where 2 = up arrow
+                    System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
                 else{
                     c[i][j] = c[i][j-1];
                     b[i][j] = 3; //where 3 = side arrow
+                    System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
             }
         }
