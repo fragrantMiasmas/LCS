@@ -17,22 +17,14 @@ public class LCS {
         return charA;
     }
     
-    public void LCS_length(char[] x, char[] y){
+    public int[][] LCS_length(char[] x, char[] y){
         int m =  x.length;
         int n = y.length;
         
         int[][] b = new int [n][m]; 
         int[][] c = new int[n+1][m+1];
         
-//        for(int i=0; i<m; i++){ //set rows to zero
-//            c[i][0] = 0;
-//        }
-//        
-//        //may have to swithch 0 and j/i because java is different major than matlab
-//        for(int j= 0; j<m; j++){ //set columns to zero
-//            c[j][0] = 0;
-//        }
-        
+        // row and column 0 are automatically zeros
         for (int i = 1; i<m; i++){
             for(int j = 1; j<n; j++){
                 
@@ -55,6 +47,7 @@ public class LCS {
         }
         
         //later return 2-d arrays b and c
+        return b;
     }
     public void printLCS(int[][] b, char[] x, int i, int j){
         if(i==0 || j==0)
