@@ -5,6 +5,8 @@
  */
 package Longest_common_subsequence;
 
+import java.util.HashMap;
+
 /**
  *
  * @author ElizabethReed PC
@@ -65,7 +67,7 @@ public class LCS {
     
     public void printLCS(int[][] b, char[] x, int i, int j){
         if(i==0 || j==0){
-            
+            //does nothing
         }
 
       int curr = b[i][j];
@@ -89,5 +91,21 @@ public class LCS {
         
         int[][] b = LCS_length(x, y);
         printLCS(b, x, x.length-1, y.length-1);
+    }
+    
+    HashMap<Integer, StringBuilder> hmap = new HashMap<Integer, StringBuilder>();
+    
+    public void bruteForce(String u, String v){
+   
+        for(int i = 0; i<u.length(); i++){ //find all subsequences of x
+            
+            for(int j = i; j<u.length(); j++){
+                StringBuilder sb = new StringBuilder(); //new stringbuilder every loop iteration
+                char curr = u.charAt(i); // includes trivial cases
+                sb.append(curr);
+                //if new combo
+                hmap.put(j, sb);
+            }
+        }
     }
 }
