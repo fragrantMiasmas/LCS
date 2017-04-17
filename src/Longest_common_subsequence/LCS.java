@@ -25,21 +25,24 @@ public class LCS {
         int[][] c = new int[n+1][m+1];
         
         // row and column 0 are automatically zeros
-        for (int i = 1; i<m; i++){
-            for(int j = 1; j<n; j++){
+        for (int i = 0; i<m; i++){
+            for(int j = 0; j<n; j++){
                 
-                if(x[i-1]==y[j-1]){ //because x,y need to start at 0
-                    c[i][j] = c[i-1][j-1]+1;
+                int ci = i+1; //c needs to be up be one
+                int cj = j+1;
+                
+                if(x[i]==y[j]){ //because x,y need to start at 0
+                    c[ci][cj] = c[ci][cj-1]+1;
                     b[i][j] = 1; //where one = diagonal arrow
                     System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
-                else if(c[i-1][j]>=c[i][j-1]){
-                    c[i][j] = c[i-1][j];
+                else if(c[ci-1][cj]>=c[ci][cj-1]){
+                    c[ci][cj] = c[ci-1][cj];
                     b[i][j] = 2; //where 2 = up arrow
                     System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
                 else{
-                    c[i][j] = c[i][j-1];
+                    c[ci][cj] = c[ci][cj-1];
                     b[i][j] = 3; //where 3 = side arrow
                     System.out.println(i + ", " + j + " = " + b[i][j]);
                 }
