@@ -57,9 +57,9 @@ public class Longest_common_subsequence {
     
     public static void benchmark(int i) {
         System.out.println();
-        System.out.println("-----------------------------");
-        System.out.printf("Beginning Benchmark for n = %d:\n", lengths[i]);
-        System.out.println("------------------------------");
+        System.out.println("┌───────────────────────┐");
+        System.out.printf("│ Beginning Benchmark for n = %06d  │\n", lengths[i]);
+        System.out.println("└───────────────────────┘");
         System.out.println();
 
         if (i < 3) {
