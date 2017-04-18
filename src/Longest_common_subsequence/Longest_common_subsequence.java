@@ -70,6 +70,7 @@ public class Longest_common_subsequence {
             System.out.printf("Ran in time %10dns\n\n", TM.read());
         } else {
             System.out.println("Skipping Bruteforce");
+            System.out.println();
         }
         
         System.out.println("Beginning Dynamic");

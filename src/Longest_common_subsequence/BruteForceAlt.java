@@ -6,6 +6,7 @@
 package Longest_common_subsequence;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -19,7 +20,7 @@ public class BruteForceAlt {
     public void getSubStrings(String str, ArrayList<String> lst) {
         int len = str.length();
         for (int i = 0; i < 1<<len; i++) {
-            System.out.printf("(on loop %8d / %8d)\n", i, (1<<len));
+            //System.out.printf("(on loop %8d / %8d)\n", i, (1<<len));
             StringBuilder substring = new StringBuilder(len);
             //System.out.printf("starting with i = %d\n", i);
             int j = 0;
@@ -61,8 +62,30 @@ public class BruteForceAlt {
         return longest;
     }
     
+    public String longestCommonSubstringAlt(String str1, String str2) {
+        getSubStrings(str1,ex1);
+        getSubStrings(str2,ex2);
+        
+        String longest = "";
+        
+        HashSet<String> hash = new HashSet<>();
+        for (int i = 0; i < ex1.size(); i++) {
+            hash.add(ex1.get(i));
+        }
+        for (int j = 0; j < ex2.size(); j++) {
+            if (hash.contains(ex2.get(j))) {
+                if (ex2.get(j).length() > longest.length()) {
+                    longest = ex2.get(j);
+                }
+            }
+        }
+        
+        return longest;
+        
+    }
+    
     public void bruteForceLCS(String u, String v) {
-        String lcs = longestCommonSubstring(u,v);
+        String lcs = longestCommonSubstringAlt(u,v);
         System.out.println(lcs);
     }
     
