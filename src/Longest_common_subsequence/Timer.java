@@ -35,6 +35,18 @@ public class Timer {
         long runTime = stopTime - startTime;
         return (runTime);
     }
+    
+    public String readHR() {
+        long ns = read();
+        long s = (ns / 1_000_000_000);
+        ns -= (s * 1_000_000_000);
+        long ms = (ns / 1_000_000);
+        ns -= (ms * 1_000_000);
+        long us = (ns / 1_000);
+        ns -= (us * 1_000);
+        String str = String.format("[%03d:%03d:%03d:%03d]", s, ms, us, ns);
+        return str;
+    }
 
    
 

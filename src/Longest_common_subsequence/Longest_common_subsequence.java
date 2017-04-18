@@ -67,7 +67,7 @@ public class Longest_common_subsequence {
             TM.start();
             BF.bruteForceLCS(strings1[i], strings2[i]);
             TM.stop();
-            System.out.printf("Ran in time %10dns\n\n", TM.read());
+            System.out.printf("Ran in time %s\n\n", TM.readHR());
         } else {
             System.out.println("Skipping Bruteforce");
             System.out.println();
@@ -77,7 +77,7 @@ public class Longest_common_subsequence {
         TM.start();
         LCS.dynamicLCS(strings1[i], strings2[i]);
         TM.stop();
-        System.out.printf("Ran in time %10dns\n", TM.read());
+        System.out.printf("Ran in time %s\n", TM.readHR());
     }
     
 }
