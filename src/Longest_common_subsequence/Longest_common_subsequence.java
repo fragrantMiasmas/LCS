@@ -16,13 +16,19 @@ public class Longest_common_subsequence {
      */
     public static void main(String[] args) {
         Dynamic LCS = new Dynamic();
-        BruteForce bf = new BruteForce();
+        BruteForceAlt BF = new BruteForceAlt();
         Timer TM = new Timer();
         
         String ex = "ABCD";
         String ex2 = "ACBD";
 
+        System.out.println("DYNAMIC:");
         LCS.dynamicLCS(ex, ex2);
+
+        System.out.println("BRUTEFORCE:");
+        BF.bruteForceLCS(ex, ex2);
+        
+        //LCS.dynamicLCS(ex, ex2);
         
         
     }
