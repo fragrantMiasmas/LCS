@@ -19,6 +19,7 @@ public class BruteForceAlt {
     public void getSubStrings(String str, ArrayList<String> lst) {
         int len = str.length();
         for (int i = 0; i < 1<<len; i++) {
+            System.out.printf("(on loop %8d / %8d)\n", i, (1<<len));
             StringBuilder substring = new StringBuilder(len);
             //System.out.printf("starting with i = %d\n", i);
             int j = 0;
@@ -47,7 +48,7 @@ public class BruteForceAlt {
         int len2 = ex2.size();
         for (int i = 0; i < len1; i++) {
             for (int j = 0; j < len2; j++) {
-                //System.out.printf("comparing %d, %d\n",i,j);
+                System.out.printf("comparing %d, %d\n",i,j);
                 if (ex1.get(i).equals(ex2.get(j))) {
                     //System.out.println("Found a Match!");
                     String common = ex1.get(i);
