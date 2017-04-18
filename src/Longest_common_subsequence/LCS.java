@@ -111,30 +111,56 @@ public class LCS {
     }
 
     HashMap<Integer, StringBuilder> hmap = new HashMap<Integer, StringBuilder>();
-
-    public void findsub(String u) { //find subsequences of first string
-        char[] charA = u.toCharArray();
-        int c = (int) Math.pow(2, charA.length); //2^n for binary counter
-        int[] counter = new int[c]; //create binary number array
-        
-        for (int i = 0; i < c; i++) { //find all subsequences of x
-
-            for (int j = i; j < u.length(); j++) {
-                StringBuilder sb = new StringBuilder(); //new stringbuilder every loop iteration
-                char curr = u.charAt(i); // includes trivial cases
-                sb.append(curr);
-                //if new combo
-                hmap.put(j, sb);
-                
-                
-            }
-        } //end of outer loop
-        //still need to account for nonconsecutive sequences
+    
+     public boolean trueFalse(int remainder){
+        return remainder == 1;
     }
+    
+   
+    //converts base 10 number to boolean array
+    //increment base 10 number 0-n
+    public boolean[] boolArray(int middleman, int n) { //goes to base 2
+        boolean[] TF = new boolean[n];
+        
+        //divide method
+        int remainder = middleman % 2;
+        TF[n-1]= trueFalse(remainder); //start at end of array
+        
+        int semi_quotient = (middleman - remainder) / 2;
+        
+        int i = n-2;
+        while (semi_quotient != 0) {
+
+            remainder = semi_quotient % 2; // until your semi quotient reaches zero
+            TF[i]= trueFalse(remainder);
+            i--;
+            semi_quotient = (semi_quotient - remainder) / 2;
+
+        }
+       return TF;
+    }
+ 
+    
+     public void findSubstrings(char[] charA, boolean[] bool, int n, int c){ //where c is number of characters in original array
+         
+         for(int i = 0; i < n; i++){ //increment number by one
+             boolean[] counter = boolArray(i, n); //convert number to binary
+             StringBuilder sb = new StringBuilder(); //new stringbuilder every loop iteration
+             
+             for (int j = 0; j<c; j++){ //go through each index
+                 if (counter[j]){ //if index is true
+                    //append char[j] to array
+                    sb.append(charA[j]);
+                    hmap.put(j, sb); //later have stringbuilder?
+             }
+             }
+             
+         }
+     }
 
     public void bruteForce(String u, String v) {
 
-        findsub(u); //find all subsequences of u
+//        int[] bin = BoolArray(u); //find all subsequences of u
         for (int i = 0; i < v.length(); i++) {
             //see if substring in u is also in v
             hmap.get(i);
