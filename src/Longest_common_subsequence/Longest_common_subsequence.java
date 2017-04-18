@@ -15,7 +15,8 @@ public class Longest_common_subsequence {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LCS LCS = new LCS();
+        Dynamic LCS = new Dynamic();
+        BruteForce bf = new BruteForce();
         Timer TM = new Timer();
         
         String ex = "ABCD";
