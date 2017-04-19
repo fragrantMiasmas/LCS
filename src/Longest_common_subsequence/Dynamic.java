@@ -17,8 +17,8 @@ public class Dynamic {
         int m = x.length;
         int n = y.length;
 
-        int[][] b = new int[n][m];
-        int[][] c = new int[n + 1][m + 1];
+        int[][] b = new int[m][n];
+        int[][] c = new int[m + 1][n + 1];
 
         // row and column 0 are automatically zeros
         for (int i = 0; i < m; i++) {
